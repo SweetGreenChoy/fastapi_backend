@@ -28,26 +28,26 @@ class Item(Base):
 
 
 class Tournament(Base):
-    __tablename__ = "TOURNAMENTS"
+    __tablename__ = "tournaments"
 
     id = Column(Integer, autoincrement=True, primary_key=True, index=True)
     title = Column(String, nullable=False, default="")
     description = Column(String, nullable=True, default="")
     ongoing = Column(Integer, nullable=False)
-    winner = Column(Integer, ForeignKey("USERS.id"))
+    winner = Column(Integer, ForeignKey("users.id"))
 
 
 class Register(Base):
-    __tablename__ = "REGISTERS"
+    __tablename__ = "registers"
 
-    id = Column(Integer, ForeignKey("USERS.id", "TOURNAMENTS.id"), primary_key=True)
+    id = Column(Integer, ForeignKey("users.id", "tournaments.id"), primary_key=True)
     
 
 class Battle(Base):
-    __tablename__ = "BATTLES"
+    __tablename__ = "battles"
 
     id = Column(Integer, autoincrement=True, primary_key=True, index=True)
-    b_player = Column(Integer, ForeignKey("USERS.id"))
-    w_player = Column(Integer, ForeignKey("USERS.id"))
+    b_player = Column(Integer, ForeignKey("users.id"))
+    w_player = Column(Integer, ForeignKey("users.id"))
     g_round = Column(Integer, nullable=False)
-    winner = Column(Integer, ForeignKey("USERS.id"))
+    winner = Column(Integer, ForeignKey("users.id"))
