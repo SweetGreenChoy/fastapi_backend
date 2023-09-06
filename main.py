@@ -17,3 +17,12 @@ async def home(request: Request):
 @app.get("/popup.html")
 async def popup(request: Request):
     return  templates.TemplateResponse("popup.html",{"request":request})
+
+@app.get("/signup/req-in")
+async def signup():
+    return {"signup":"up"}
+
+""" @app.post("/mypage/{user_id}")
+async def read_user(
+    user_id: Player.id,
+) """

@@ -1,1 +1,0 @@
-# modules for Battle-go game server
